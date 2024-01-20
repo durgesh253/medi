@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Doctor
+{% endblock %}
+
+{% block body %}
+  <div class="container mx-auto mt-5">
+    <h2 class="text-2xl font-bold mb-4">Create a New Doctor</h2>
+    
+    <form method="post" enctype="multipart/form-data" class="max-w-md">
+      {% csrf_token %}
+      <div class="mb-4">
+        <label for="firstname" class="block text-sm font-medium text-gray-600">First Name:</label>
+        <input type="text" name="firstname" required class="mt-1 p-2 w-full border rounded-md">
+      </div>
+      
+      <div class="mb-4">
+        <label for="last_name" class="block text-sm font-medium text-gray-600">Last Name:</label>
+        <input type="text" name="last_name" required class="mt-1 p-2 w-full border rounded-md">
+      </div>
+      
+      <div class="mb-4">
+        <label for="contact" class="block text-sm font-medium text-gray-600">Contact:</label>
+        <input type="text" name="contact" required class="mt-1 p-2 w-full border rounded-md">
+      </div>
+      
+      <div class="mb-4">
+        <label for="age" class="block text-sm font-medium text-gray-600">Age:</label>
+        <input type="text" name="age" required class="mt-1 p-2 w-full border rounded-md">
+      </div>
+      
+      <div class="mb-4">
+        <label for="address" class="block text-sm font-medium text-gray-600">Address:</label>
+        <textarea name="address" required class="mt-1 p-2 w-full border rounded-md"></textarea>
+      </div>
+      
+      <div class="mb-4">
+        <label for="total_patient" class="block text-sm font-medium text-gray-600">Total Patients:</label>
+        <input type="text" name="total_patient" required class="mt-1 p-2 w-full border rounded-md">
+      </div>
+      
+      <div class="mb-4">
+        <label for="summary" class="block text-sm font-medium text-gray-600">Summary:</label>
+        <textarea name="summary" required class="mt-1 p-2 w-full border rounded-md"></textarea>
+      </div>
+      
+      <div class="mb-4">
+        <label for="profile_pic" class="block text-sm font-medium text-gray-600">Profile Picture:</label>
+        <input type="file" name="profile_pic" accept="image/*" class="mt-1">
+      </div>
+
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Create Doctor</button>
+    </form>
+  </div>
+{% endblock %}

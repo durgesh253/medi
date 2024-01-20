@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+patient 
+{% endblock %}
+
+{% block body %}
+
+<div class="container mx-auto mt-8">
+    <div class="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
+        <h2 class="text-2xl font-semibold mb-6">Create Patient</h2>
+
+        <form action="{% url 'add_patient' %}" method="post">
+            {% csrf_token %}
+
+            <!-- First Name -->
+            <div class="mb-4">
+                <label for="firstname" class="block text-sm font-medium text-gray-600">First Name</label>
+                <input type="text" name="firstname" id="firstname" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+            <!-- Last Name -->
+            <div class="mb-4">
+                <label for="last_name" class="block text-sm font-medium text-gray-600">Last Name</label>
+                <input type="text" name="last_name" id="last_name" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+            <!-- Contact -->
+            <div class="mb-4">
+                <label for="contact" class="block text-sm font-medium text-gray-600">Contact</label>
+                <input type="text" name="contact" id="contact" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+            <!-- Age -->
+            <div class="mb-4">
+                <label for="age" class="block text-sm font-medium text-gray-600">Age</label>
+                <input type="number" name="age" id="age" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+           <!-- Doctor ID -->
+<div class="mb-4">
+    <label for="doctor_id" class="block text-sm font-medium text-gray-600">Doctor ID</label>
+    <select name="doctor_id" id="doctor_id" class="mt-1 p-2 w-full border rounded-md">
+        {% for doctor in doctors %}
+            <option value="{{ doctor.id }}">{{ doctor.firstname }} {{ doctor.last_name }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+
+            <!-- Address -->
+            <div class="mb-4">
+                <label for="address" class="block text-sm font-medium text-gray-600">Address</label>
+                <input type="text" name="address" id="address" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 text-white p-2 rounded-md">Create Patient</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

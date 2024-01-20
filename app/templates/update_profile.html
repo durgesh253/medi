@@ -1,0 +1,51 @@
+{% extends 'base.html' %} 
+{% block title %} Update Profile {% endblock %} 
+{% block body %}
+
+    <div class="flex items-center justify-center h-screen">
+        <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+            <h2 class="text-2xl font-semibold mb-4">Update Profile</h2>
+
+            <form action="" method="post" enctype="multipart/form-data"
+                class="space-y-4">
+                {% csrf_token %}
+
+                <!-- First Name Input Field -->
+                <div class="mb-4">
+                    <label for="first_name" class="block text-sm font-medium text-gray-600">First Name</label>
+                    <input type="text" name="first_name" id="first_name"
+        
+                        class="mt-1 p-2 w-full border border-gray-300 rounded" value="{{ staff.first_name }}" />
+                </div>
+
+                <!-- Last Name Input Field -->
+                <div class="mb-4">
+                    <label for="last_name" class="block text-sm font-medium text-gray-600">Last Name</label>
+                    <input type="text" name="last_name" id="last_name"
+                        class="mt-1 p-2 w-full border border-gray-300 rounded" value="{{ request.session.last_name }}" required>
+                </div>
+
+                <!-- Email Input Field -->
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
+                    <input type="email" name="email" id="email"
+                        class="mt-1 p-2 w-full border border-gray-300 rounded" value="{{ request.session.email }}" required>
+                </div>
+
+                <!-- Contact Input Field -->
+                <div class="mb-4">
+                    <label for="contact" class="block text-sm font-medium text-gray-600">Contact</label>
+                    <input type="text" name="mobile" id="contact"
+                        class="mt-1 p-2 w-full border border-gray-300 rounded" value="{{ request.session.mobile }}" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                    Update Profile
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
